@@ -1,0 +1,29 @@
+
+How to build:
+
+* cabal configure 
+* cabal install --dependencies-only
+* cabal build
+
+In three terminals, start 3 nodes: 
+
+* ./dist/build/mini-distributed-key-value/mini-distributed-key-value main 3001
+* ./dist/build/mini-distributed-key-value/mini-distributed-key-value main 3002
+* ./dist/build/mini-distributed-key-value/mini-distributed-key-value main 3003
+
+
+Then in various terminals (possibly distinct), claim slices on the key ring:
+
+* claim 100
+* claim 200
+* claim 300
+* claim 300
+* claim 400 ...
+
+Then in other or same terminals, you can set/get values; in possibly different terminals:
+
+* set 42 toto
+* get 42
+* get 43
+* set 155 machin
+* get 155 ...
